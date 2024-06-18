@@ -18,7 +18,7 @@
                 <p class="tag tag--info">
                     {{ Auth::user()->role->title }}
                 </p>
-               <h4>{{ Auth::user()->name }} {{ Auth::user()->firstname }}</h4>
+               <h4>{{ Auth::user()->lastname }} {{ Auth::user()->firstname }}</h4>
                 <p class="text--s mt--2">
                     {{ Auth::user()->email }}
                 </p>

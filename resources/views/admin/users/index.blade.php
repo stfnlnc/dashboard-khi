@@ -53,7 +53,9 @@
                     </p>
                     <div class="flex row align--center gap--2 justify--end">
                         <x-edit href="{{ route('users.edit', [$user]) }}"></x-edit>
+                        @if(Auth::user()->role->name === 'admin')
                         <x-delete action="{{ route('users.destroy', [$user]) }}"></x-delete>
+                            @endif
                     </div>
                 </div>
             @endforeach

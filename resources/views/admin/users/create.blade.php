@@ -11,10 +11,10 @@
                 <div class="grid grid--2 grid--1-mobile grid-gap--4">
                     <!-- Name -->
                     <div>
-                        <x-input-label for="name" :value="__('Nom')"/>
-                        <x-text-input id="name" type="text" name="name" :value="old('name')" required autofocus
-                                      autocomplete="name"/>
-                        <x-input-error :messages="$errors->get('name')"/>
+                        <x-input-label for="lastname" :value="__('Nom')"/>
+                        <x-text-input id="lastname" type="text" name="lastname" :value="old('lastname')" required autofocus
+                                      autocomplete="lastname"/>
+                        <x-input-error :messages="$errors->get('lastname')"/>
                     </div>
 
                     <!-- FirstName -->

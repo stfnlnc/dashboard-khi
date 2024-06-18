@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $option = Option::first();
-        View::share('option', $option);
+        //
     }
 }

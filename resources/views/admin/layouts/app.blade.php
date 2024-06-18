@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="robots" content="noindex">
-        <link rel="icon" href="{{ $option->faviconUrl() }}" />
-        <title>@yield('title') - {{ config('app.name') }}</title>
+        <link rel="icon" href="" />
+        <title>@hasSection('title')@yield('title') - @endif {{ config('app.name') }}</title>
         @vite(['resources/admin/css/app.css', 'resources/admin/js/app.js'])
     </head>
     <body class="">

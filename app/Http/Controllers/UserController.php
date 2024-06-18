@@ -29,7 +29,7 @@ class UserController extends Controller
                 ->orderBy('role_id', 'asc')
                 ->paginate(10);
         } else {
-            $users = User::where('users.name', 'like', '%' . $search . '%')
+            $users = User::where('users.lastname', 'like', '%' . $search . '%')
                 ->orWhere('users.email', 'like', '%' . $search . '%')
                 ->orWhere('users.firstname', 'like', '%' . $search . '%')
                 ->orWhere('users.phone', 'like', '%' . $search . '%')
@@ -56,12 +56,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'phone' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()]
         ]);
         $user = User::create([
-            'name' => $request->name,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
