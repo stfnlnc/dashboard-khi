@@ -23,12 +23,13 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $user = User::where(['email' => $this->request->get('email')])->first();
         return [
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:20'],
             'role' => ['exists:roles,id', 'required'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user)],
         ];
     }
 
@@ -44,6 +45,7 @@ class UserRequest extends FormRequest
             'email.required' => 'L\'email est requis',
             'name.required' => 'Le nom est requis',
             'firstname.required' => 'Le nom est requis',
+            'email.unique' => 'L\'email existe déjà',
         ];
     }
 }

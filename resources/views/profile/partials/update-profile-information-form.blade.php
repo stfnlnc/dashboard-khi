@@ -16,39 +16,39 @@
     <form method="post" action="{{ route('profile.update') }}" class="flex col gap--2">
         @csrf
         @method('patch')
-        <p class="tag tag--info">
-            {{ $user->role->title }}
+        <p class="tag tag--stroke-light">
+            {{ Auth::user()->role->title }}
         </p>
         <div class="grid grid--2 grid--1-mobile grid-gap--4">
         <!-- Name -->
         <div>
             <x-input-label for="lastname" :value="__('Nom')" />
-            <x-text-input id="lastname" name="lastname" type="text" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname" />
+            <x-text-input id="lastname" name="lastname" type="text" :value="old('lastname', Auth::user()->lastname)" required autofocus autocomplete="lastname" />
             <x-input-error :messages="$errors->get('lastname')" />
         </div>
 
         <!-- FirstName -->
         <div>
             <x-input-label for="firstname" :value="__('Prénom')" />
-            <x-text-input id="firstname" name="firstname" type="text" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname" />
+            <x-text-input id="firstname" name="firstname" type="text" :value="old('firstname', Auth::user()->firstname)" required autofocus autocomplete="firstname" />
             <x-input-error :messages="$errors->get('firstname')" />
         </div>
 
         <!-- Phone -->
         <div>
             <x-input-label for="phone" :value="__('Téléphone')" />
-            <x-text-input id="phone" name="phone" type="text" :value="old('phone', $user->phone)" autofocus autocomplete="phone" />
+            <x-text-input id="phone" name="phone" type="text" :value="old('phone', Auth::user()->phone)" autofocus autocomplete="phone" />
             <x-input-error :messages="$errors->get('phone')" />
         </div>
 
         <!-- Email -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" :value="old('email', Auth::user()->email)" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" />
 
             <!-- Email verify -->
-            @if (!$user->hasVerifiedEmail())
+            @if (!Auth::user()->hasVerifiedEmail())
                 <div class="flex col gap--1  mt--2">
                     <p class="text--s tag tag--warning">
                         {{ __('Votre adresse email n\'est pas vérifiée') }}

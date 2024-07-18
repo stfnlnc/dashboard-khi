@@ -43,20 +43,6 @@ section {
     width: 100%;
 }
 
-.site {
-    &__logo {
-        width: fit-content;
-        height: 40px;
-        & > img {
-            height: 100%;
-        }
-    }
-    &__favicon {
-        width: 30px;
-        height: 30px;
-    }
-}
-
 a {
     color: unset;
     text-decoration: none;

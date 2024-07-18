@@ -7,6 +7,11 @@ p {
 .text {
     line-height: 140%;
     letter-spacing: 0;
+    &--xs {
+        font-size: 0.625rem;
+        line-height: 150%;
+        letter-spacing: 0;
+    }
 
     &--s {
         font-size: 0.875rem;

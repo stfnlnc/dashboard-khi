@@ -45,14 +45,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        $roles = Role::orderBy('name', 'asc')->get();
-        return view('admin.users.create', [
-            'roles' => $roles,
-        ]);
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -69,24 +61,14 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        return Redirect::route('users.index');
-    }
-
-    public function edit(User $user)
-    {
-        $roles = Role::orderBy('name', 'asc')->get();
-        return view('admin.users.edit', [
-            'user' => $user,
-            'roles' => $roles,
-        ]);
+        return Redirect::route('users.index')->with('success', 'L\'utilisateur a été créé');
     }
 
     public function update(UserRequest $request, User $user)
     {
-        Validator::make($request->all(), ['email' => Rule::unique(User::class)->ignore($user)], ['unique' => 'L\'email existe déjà'])->validate();
         $user->update($request->validated());
         $user->role()->associate($request->validated('role'))->save();
-        return to_route('users.edit', $user)->with('success', 'L\'utilisateur a été modifié');
+        return to_route('users.index')->with('success', 'L\'utilisateur a été modifié');
     }
 
     public function destroy(User $user)

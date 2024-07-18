@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 htmx.onLoad(function (target) {
-    const menuOpen = document.querySelector('.mobile-menu')
-    const menuClose = document.querySelector('.mobile-close')
-    const menu = document.querySelector('.mobile-dropdown')
-    const menuItem = document.querySelectorAll('.mobile-dropdown > div > div > a')
+    const menuOpen = document.querySelector('.mobile__menu')
+    const menuClose = document.querySelector('.mobile__close')
+    const menu = document.querySelector('.mobile__dropdown')
+    const menuItem = document.querySelectorAll('.mobile__dropdown > div > div > a')
     if(menuOpen && menuClose && menu && menuItem){
 
         menuOpen.addEventListener('click', () => {

@@ -10,7 +10,7 @@
         @vite(['resources/admin/css/app.css', 'resources/admin/js/app.js'])
     </head>
     <body class="">
-        <div class="container__full-width flex col">
+        <div class="container--full-width flex col">
             @include('admin.layouts.navigation')
 
             <main>
@@ -40,6 +40,7 @@
                     @endif
                 @endif
                 {{ $slot }}
+                @include('admin.users.modals.create-modal')
             </main>
         </div>
     </body>

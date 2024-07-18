@@ -10,8 +10,8 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::middleware(['role:admin|editor'])->prefix('dashboard')->group(function () {
-    Route::middleware(['role:admin'])->resource('users', UserController::class)->except([
+Route::middleware('auth')->prefix('dashboard')->group(function () {
+    Route::middleware(['auth'])->resource('users', UserController::class)->except([
         'show'
     ]);
     Route::get('/', function () {

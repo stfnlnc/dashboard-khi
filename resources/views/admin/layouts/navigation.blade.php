@@ -10,15 +10,15 @@
                 {{ __('Tableau de bord') }}
             </x-nav-link>
             @if(Auth::user()->role->name === 'admin')
-            <div class="nav--dropdown">
+            <div class="nav__dropdown">
                 <x-nav-link :href="route('users.index')" :active="str_contains($route, 'users.')">
                     {{ __('Utilisateurs') }}
                 </x-nav-link>
-                <div class="nav--dropdown-item">
+                <div class="nav__dropdown__item">
                     <x-nav-link :href="route('users.index')">
                         {{ __('Gestion des utilisateurs') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.create')">
+                    <x-nav-link href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'add-user')">
                         {{ __('Ajouter un utilisateur') }}
                     </x-nav-link>
                 </div>
@@ -29,7 +29,7 @@
 
 @endsection
 
-<nav x-data="{ open: false }" class="flex row justify--center border--bottom border--stroke-light">
+<nav class="flex row justify--center border--bottom border--stroke-light">
     <!-- Primary Navigation Menu -->
     <div class="container pt--4 pb--4">
         <div class="flex row align--center justify--space-between w--100">
@@ -38,13 +38,13 @@
                 @yield('menu')
             </div>
             <div class="display-mobile">
-                <span class="mobile-menu">
+                <span class="mobile__menu">
                     <span class="line-1"></span>
                     <span class="line-2"></span>
                     <span class="line-3"></span>
                 </span>
-                <div class="mobile-dropdown p--5 flex col align--start gap--8 c--primary-light">
-                    <span class="mobile-close align--self-end">
+                <div class="mobile__dropdown p--5 flex col align--start gap--8 color--primary-light">
+                    <span class="mobile__close align--self-end">
                         <span class="line-1"></span>
                         <span class="line-2"></span>
                         <span class="line-3"></span>
