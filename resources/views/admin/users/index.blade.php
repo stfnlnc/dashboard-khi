@@ -27,40 +27,64 @@
             </div>
             <p class="tag tag--info">{{ $users->count() }} utilisateur{{ $users->count() <= 1 ? '' : 's' }} sur {{ $users->total() }}</p>
         </div>
-        <div class="grid grid--5 hide-mobile w--100 p--2 text--s border--rounded border--bottom border--stroke-light bg--stroke-light">
-            <p>Nom</p>
-            <p>Email</p>
-            <p>Téléphone</p>
-            <p>Statut</p>
-            <p class="flex row justify--end">Actions</p>
-        </div>
-        <div id="search-results">
+        <table class="w--100 text--s text-left">
+            <thead>
+                <tr>
+                    <th>
+                        <p>Nom</p>
+                    </th>
+                    <th class="hide-mobile">
+                        <p>Email</p>
+                    </th>
+                    <th class="hide-mobile">
+                        <p>Téléphone</p>
+                    </th>
+                    <th class="hide-mobile">
+                        <p>Statut</p>
+                    </th>
+                    <th>
+                        <p class="flex row justify--end">Actions</p>
+                    </th>
+                </tr>
+            </thead>
+        <tbody id="search-results">
             <!-- Show all users order by role -->
             @foreach($users as $key => $user)
-                <div class="grid grid--5 grid--1-mobile grid-gap--2 w--100 p--2 border--rounded border border--stroke-light mt--2 mb--2">
-                    <p class="flex row align--center text--s tag tag--stroke-light">{{ $user->firstname }} {{ $user->lastname }}</p>
-                    <p class="flex row align--center gap--2 text--s">
-                        {{ $user->email }}
-                        <x-check :check="$user->email_verified_at"></x-check>
-                    </p>
-                    <p class="flex row align--center gap--1 text--s">
-                        {{ $user->phone }}
-                    </p>
-                    <p
-                        class="text--s tag tag--stroke-light"
-                    >
-                        {{ $user->role->title }}
-                    </p>
+                <tr class="p--2 border--rounded border border--stroke-light mt--2 mb--2">
+                    <td>
+                        <p class="flex row align--center text--s tag tag--stroke-light">{{ $user->firstname }} {{ $user->lastname }}</p>
+                    </td>
+                    <td class="hide-mobile">
+                        <p class="flex row align--start justify--start gap--2 text--s">
+                            <x-check :check="$user->email_verified_at"></x-check>
+                            {{ $user->email }}
+                        </p>
+                    </td>
+                    <td class="hide-mobile">
+                        <p class="flex row align--center gap--1 text--s">
+                            {{ $user->phone }}
+                        </p>
+                    </td>
+                    <td class="hide-mobile">
+                        <p
+                            class="text--s tag tag--stroke-light"
+                        >
+                            {{ $user->role->title }}
+                        </p>
+                    </td>
+                    <td>
                     <div class="flex row align--center gap--2 justify--end">
                         <x-edit x-data="{{ $user }}" x-on:click.prevent="$dispatch('open-modal', 'edit-user-{{ $user->id }}')"></x-edit>
                         @if(Auth::user()->role->name === 'admin')
                         <x-delete action="{{ route('users.destroy', [$user]) }}"></x-delete>
                             @endif
                     </div>
-                </div>
+                    </td>
+                </tr>
                 @include('admin.users.modals.edit-modal', ['user' => $user])
             @endforeach
-        </div>
+        </tbody>
+        </table>
         <x-paginate :data="$users"></x-paginate>
     </section>
 

@@ -3,7 +3,7 @@
         @csrf
         @method('patch')
         <!-- Selected user role -->
-        <p class="tag tag--stroke-light">
+        <p class="tag tag--stroke-light mb--2">
             {{ $user->role->title }}
         </p>
         <div class="flex col gap--4">

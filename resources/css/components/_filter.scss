@@ -17,7 +17,7 @@
     cursor: pointer;
     width: fit-content;
     transition: background-color var(--duration), color var(--duration), border var(--duration);
-    &--active {
+    &__active {
         color: var(--primary-light);
         background-color: var(--primary-dark);
     }

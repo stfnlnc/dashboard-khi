@@ -1,10 +1,10 @@
 .nav {
-    &--dropdown {
+    &__dropdown {
         position: relative;
-        &:hover &-item {
+        &:hover &__item {
             display: flex;
         }
-        &-item {
+        &__item {
             display: none;
             position: absolute;
             flex-direction: column;
@@ -20,12 +20,12 @@
 
 @media screen and (max-width: 1080px) {
     .nav {
-        &--dropdown {
+        &__dropdown {
             position: static;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            &-item {
+            &__item {
                 display: flex;
                 position: static;
                 flex-direction: column;

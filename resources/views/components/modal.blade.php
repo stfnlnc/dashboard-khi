@@ -37,7 +37,7 @@
         class="container--full-width h--100 fixed t--0 l--0 flex row align--start justify--center"
     style="display: {{ $show ? 'block' : 'none' }}; background: rgba(0,0,0,0.40); overflow: scroll"
     >
-        <div class="w--fit-content background--primary-light p--8 border border--stroke-light border--rounded box-shadow mt--8">
+        <div class="w--fit-content background--primary-light p--8 border border--stroke-light border--rounded box-shadow mt--8 mb--8">
             {{ $slot }}
         </div>
     </div>

@@ -9,13 +9,13 @@
     --secondary-color-4: #DAD6EA;
     --stroke-light: #E0E0E0;
     --stroke-dark: #3F3E3E;
-    --info: #cce3ef;
-    --warning: #efe7cc;
-    --success: #d5efcc;
-    --danger: #efcccc;
+    --info: #B8D3F0;
+    --warning: #F3DA80;
+    --success: #B9D798;
+    --danger: #F68282;
 }
 
-$styles: ('bg': background-color, 'c': color);
+$styles: ('background': background-color, 'color': color);
 
 @each $key, $style in $styles {
     .#{$key} {

@@ -1,5 +1,5 @@
 .mobile {
-    &-menu, &-close {
+    &__menu, &__close {
         cursor: pointer;
         .line-1 {
             border-top: 2px solid var(--primary-dark);
@@ -17,7 +17,7 @@
         }
         transition: opacity 0.7s ease;
     }
-    &-close {
+    &__close {
         .line-1 {
             border-color: var(--primary-light);
         }
@@ -31,7 +31,7 @@
             @extend .line-1;
         }
     }
-    &-dropdown {
+    &__dropdown {
         position: fixed;
         top: 0;
         left: -330px;
