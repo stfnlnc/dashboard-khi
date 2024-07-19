@@ -7,12 +7,11 @@
         <meta name="robots" content="noindex">
         <link rel="icon" href="" />
         <title>@hasSection('title')@yield('title') - @endif {{ config('app.name') }}</title>
-        @vite(['resources/admin/css/app.css', 'resources/admin/js/app.js'])
+        @vite(['resources/admin/css/app.css', 'resources/dist/app.js'])
     </head>
     <body class="">
         <div class="container--full-width flex col">
             @include('admin.layouts.navigation')
-
             <main>
                 @if (isset($header))
                     <header class="container pt--4 pb--4">

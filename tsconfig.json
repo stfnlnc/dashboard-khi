@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "resources/dist",
+        "target": "ES6",
+        "noEmitOnError": true,
+        "strict": true,
+        "maxNodeModuleJsDepth": 1
+    },
+    "files": [
+        "resources/src/app.ts"
+    ]
+}
