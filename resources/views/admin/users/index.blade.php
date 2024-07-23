@@ -55,7 +55,7 @@
                         <p class="flex row align--center text--s tag tag--stroke-light">{{ $user->firstname }} {{ $user->lastname }}</p>
                     </td>
                     <td class="hide-mobile">
-                        <p class="flex row align--start justify--start gap--2 text--s">
+                        <p class="flex row align--center justify--start gap--2 text--s">
                             <x-check :check="$user->email_verified_at"></x-check>
                             {{ $user->email }}
                         </p>

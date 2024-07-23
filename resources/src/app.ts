@@ -13,16 +13,16 @@ const menuItem = document.querySelectorAll('.mobile__dropdown > div > div > a')
 if(menuOpen && menuClose && menu && menuItem){
 
     menuOpen.addEventListener('click', () => {
-        menu.style.left = '0'
+        menu.style.left = '10px'
     })
 
     menuClose.addEventListener('click', () => {
-        menu.style.left = '-330px'
+        menu.style.left = '-100%'
     })
 
     menuItem.forEach((item) => {
         item.addEventListener('click', () => {
-            menu.style.left = '-330px'
+            menu.style.left = '-100%'
         })
     })
 }
